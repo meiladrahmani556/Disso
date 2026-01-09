@@ -1,111 +1,90 @@
-# Dissertation ML Project – CNN Image Classification
+# Dissertation Project – CNN Image Classification
 
 ## 1. Project Overview
-Brief description of the problem and goal of the project.
+This project focuses on designing, training, and evaluating a Convolutional Neural Network (CNN) for image classification using a publicly available dataset from Kaggle. The project follows a full machine learning pipeline, from dataset acquisition and exploratory data analysis to model optimisation and performance evaluation.
 
 ---
 
 ## 2. How to Run This Repository
-Explain how to:
-- install dependencies
-- download dataset
-- run notebooks in order
+1. Clone the repository
+2. Install required Python packages
+3. Download the dataset (see Section 3)
+4. Run the notebooks in numerical order inside the `notebooks/` folder
 
 ---
 
 ## 3. Dataset Acquisition (Kaggle)
-- Dataset name
-- Kaggle link
-- How to download (manual + API)
+[To be completed]
 
 ---
 
 ## 4. Dataset Description
-- Number of images
-- Number of classes
-- Image size / format
-- Class labels
+[To be completed]
 
 ---
 
 ## 5. Project Objective and Success Metrics
-- What problem the CNN is solving
-- How success is measured (accuracy, loss, etc.)
+[To be completed]
 
 ---
 
 ## 6. Exploratory Data Analysis (EDA)
-- Class distribution
-- Sample images
-- Initial observations
+[To be completed]
 
 ---
 
 ## 7. Dataset Cleaning
-- Corrupted images
-- Resizing / normalisation
-- Any exclusions
+[To be completed]
 
 ---
 
 ## 8. Train / Validation / Test Split
-- Ratios
-- Method used
-- Rationale
+[To be completed]
 
 ---
 
 ## 9. CNN Model Development
 
 ### 9.1 Model 1 – Baseline CNN
-- Architecture
-- Hyperparameters
-- Results
+[To be completed]
 
 ### 9.2 Model 2 – Improved CNN
-- Changes vs Model 1
-- Results
+[To be completed]
 
 ### 9.3 Model 3 – Optimised CNN
-- Further improvements
-- Results
+[To be completed]
 
 ---
 
 ## 10. Data Augmentation
-- Techniques used
-- Why they were applied
+[To be completed]
 
 ---
 
 ## 11. Model Performance Evaluation
-- Training curves
-- Test set metrics
-- Random single-image predictions
+[To be completed]
 
 ---
 
 ## 12. Python Packages Used
-List packages and their purpose.
+[To be completed]
 
 ---
 
 ## 13. Reused Code and References
-- Tutorials
-- GitHub repos
-- Papers
+[To be completed]
 
 ---
 
 ## 14. Conclusions
-Summary of findings.
+[To be completed]
 
 ---
 
 ## 15. Future Work
-What you would improve with more time.
+[To be completed]
 
 ---
 
 ## 16. Known Issues / Bugs
-Any unresolved problems.
+[To be completed]
