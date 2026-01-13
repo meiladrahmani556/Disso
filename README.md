@@ -32,7 +32,7 @@ The following commands are used within the dataset acquisition notebook:
 pip install kaggle
 kaggle datasets download -d puneet6060/intel-image-classification -p data/ --unzip
 
-## 4. Dataset Description
+**## 4. Dataset Description**
 
 The Intel Image Classification dataset consists of natural scene images categorised into six distinct classes:
 
@@ -52,60 +52,60 @@ The dataset is organised into separate directories for training and testing imag
 
 The dataset is suitable for convolutional neural networks due to its multi-class structure and visual diversity across categories.
 
-## 5. Project Objective and Success Metrics
+**## 5. Project Objective and Success Metrics**
 
 [To be completed]
 
-## 6. Exploratory Data Analysis (EDA)
+**## 6. Exploratory Data Analysis (EDA)**
 
 [To be completed]
 
-## 7. Dataset Cleaning
+**## 7. Dataset Cleaning**
 
 [To be completed]
 
-## 8. Train / Validation / Test Split
+**## 8. Train / Validation / Test Split**
 
 [To be completed]
 
-## 9. CNN Model Development
+**## 9. CNN Model Development
 ## 9.1 Model 1 – Baseline CNN
+**
+[To be completed]
+**
+## 9.2 Model 2 – Improved CNN**
 
 [To be completed]
 
-## 9.2 Model 2 – Improved CNN
+**## 9.3 Model 3 – Optimised CNN**
 
 [To be completed]
 
-## 9.3 Model 3 – Optimised CNN
+**## 10. Data Augmentation**
 
 [To be completed]
 
-## 10. Data Augmentation
+**## 11. Model Performance Evaluation**
 
 [To be completed]
 
-## 11. Model Performance Evaluation
+**## 12. Python Packages Used**
 
 [To be completed]
 
-## 12. Python Packages Used
+**## 13. Reused Code and References**
 
 [To be completed]
 
-## 13. Reused Code and References
+## 14. Conclusions**
+**
+[To be completed]
+
+**## 15. Future Work**
 
 [To be completed]
 
-## 14. Conclusions
-
-[To be completed]
-
-## 15. Future Work
-
-[To be completed]
-
-## 16. Known Issues / Bugs
+**## 16. Known Issues / Bugs**
 
 [To be completed]
 
