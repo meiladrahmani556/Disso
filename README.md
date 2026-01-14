@@ -2,48 +2,49 @@
 
 ## 1. Project Overview
 
-This project focuses on the design, training, and evaluation of a Convolutional Neural Network (CNN) for a multi-class image classification task using a publicly available dataset from Kaggle. The project follows a complete machine learning pipeline, including dataset acquisition, exploratory data analysis (EDA), data preprocessing, CNN model development, optimisation, and performance evaluation.
+This project focuses on the design, implementation, and evaluation of a Convolutional Neural Network (CNN) for multi-class image classification. A publicly available dataset from Kaggle is used to classify natural scene images into six categories.
 
-All experiments are implemented in Python using Jupyter Notebooks. The repository demonstrates continuous development through regular GitHub commits and is structured to support reproducibility.
+The project follows a complete machine learning pipeline, including dataset acquisition, exploratory data analysis (EDA), data preprocessing, CNN model development, optimisation, and evaluation. All work is implemented in Python using Jupyter Notebooks and tracked through regular GitHub commits.
 
 ---
 
 ## 2. Repository Structure
 
-- `notebooks/` – Jupyter notebooks implementing each stage of the ML pipeline  
-- `data/` – Local dataset directory (excluded from version control)  
-- `README.md` – Project documentation  
+The repository is organised as follows:
 
-The notebooks are organised numerically to reflect the project workflow.
+- notebooks/ – Jupyter notebooks implementing each stage of the ML pipeline  
+- data/ – Dataset directory (excluded from version control via .gitignore)  
+- README.md – Project documentation  
+
+The notebooks are numbered to reflect the logical execution order of the project.
 
 ---
 
 ## 3. How to Run This Repository
 
 1. Clone the repository from GitHub.
-2. Install the required Python packages listed in `requirements.txt`.
+2. Install the required Python packages.
 3. Download the dataset using the Kaggle API (see Section 4).
-4. Run the notebooks in numerical order inside the `notebooks/` directory.
-5. All notebooks are designed to be one-click executable in Google Colab or a local Jupyter environment.
+4. Run the notebooks in numerical order inside the notebooks/ directory.
+5. All notebooks are designed to be one-click executable in Google Colab.
 
 ---
 
 ## 4. Dataset Acquisition (Kaggle)
 
-The dataset used in this project is the **Intel Image Classification** dataset obtained from Kaggle.
+The dataset used in this project is the Intel Image Classification dataset obtained from Kaggle.
 
 - Dataset name: Intel Image Classification  
 - Source: Kaggle  
 - Link: https://www.kaggle.com/datasets/puneet6060/intel-image-classification  
 
-The dataset is downloaded programmatically using the Kaggle API within Google Colab. Authentication is performed using a Kaggle API token (`kaggle.json`), which is generated via the Kaggle account settings. For security reasons, this file is not stored in the repository.
+The dataset is downloaded programmatically using the Kaggle API within Google Colab. Authentication is performed using a Kaggle API token (kaggle.json), generated via the Kaggle account settings. For security reasons, this file is not stored in the repository.
 
-The dataset is downloaded and extracted using the following commands:
+The dataset is downloaded and extracted using:
 
-pip install kaggle  
-kaggle datasets download -d puneet6060/intel-image-classification -p data/ --unzip  
+kaggle datasets download -d puneet6060/intel-image-classification -p data/ --unzip
 
-The dataset acquisition process is implemented in:
+This process is implemented in:
 
 notebooks/01_dataset_acquisition.ipynb
 
@@ -51,7 +52,7 @@ notebooks/01_dataset_acquisition.ipynb
 
 ## 5. Dataset Description
 
-The Intel Image Classification dataset consists of natural scene images categorised into six classes:
+The Intel Image Classification dataset consists of natural scene images belonging to six classes:
 
 - Buildings  
 - Forest  
@@ -60,36 +61,40 @@ The Intel Image Classification dataset consists of natural scene images categori
 - Sea  
 - Street  
 
-The dataset is organised into separate directories for training, testing, and prediction images. Each class is stored in its own subdirectory, enabling supervised learning for multi-class image classification.
+The dataset is organised into training, testing, and prediction directories. Each class is stored in a separate subdirectory, enabling supervised learning for multi-class image classification.
+
 ---
 
 ## 6. Project Objective and Success Metrics
 
-The primary objective of this project is to develop a CNN model capable of accurately classifying natural scene images into one of six predefined categories. Model performance is primarily evaluated using classification accuracy and loss metrics on validation and test datasets.
+The primary objective of this project is to develop a CNN capable of accurately classifying images into one of six predefined categories.
+
+Model performance is evaluated using:
+- Classification accuracy  
+- Training and validation loss  
+- Learning curves  
+
+These metrics are used to compare baseline and improved models.
 
 ---
 
 ## 7. Exploratory Data Analysis (EDA)
 
-Exploratory Data Analysis (EDA) was conducted to understand the dataset and inform preprocessing and modelling decisions.
+Exploratory Data Analysis was conducted to understand the dataset and guide preprocessing and modelling decisions.
 
 ### 7.1 Class Distribution
 
-The number of training images per class was analysed. Results show that all six classes contain a similar number of images, indicating no severe class imbalance. This reduces the need for class weighting during model training.
-
-A bar chart visualising the class distribution is generated in:
-
-notebooks/02_eda.ipynb
+The number of images per class was analysed. Results indicate a relatively balanced dataset, reducing the need for class weighting during training.
 
 ### 7.2 Sample Image Inspection
 
-Randomly selected images from each class were visually inspected. The images clearly correspond to their respective class labels, and strong semantic differences between classes such as forest, sea, and street are observable. This confirms the suitability of the dataset for CNN-based image classification.
+Random samples from each class were visually inspected. The images clearly correspond to their class labels, confirming the suitability of the dataset for CNN-based image classification.
 
 ### 7.3 Image Size Analysis
 
-A random sample of 600 images (100 per class) was analysed to assess image dimensions. All sampled images were found to have consistent dimensions of **150 × 150 pixels**. This uniformity simplifies the preprocessing pipeline, as no additional resizing is required prior to CNN training. Image normalisation is still applied.
+A random sample of 600 images (100 per class) was analysed. All sampled images have consistent dimensions of 150 × 150 pixels. This uniformity simplifies preprocessing, as no additional resizing is required prior to training.
 
-EDA is fully implemented in:
+EDA is implemented in:
 
 notebooks/02_eda.ipynb
 
@@ -97,7 +102,9 @@ notebooks/02_eda.ipynb
 
 ## 8. Dataset Cleaning and Preprocessing
 
-Images are normalised by rescaling pixel values to the range [0, 1]. The training dataset is split into training (80%) and validation (20%) subsets using Keras ImageDataGenerator. The test dataset is kept separate and is not used during training to ensure unbiased model evaluation.
+Images are normalised by rescaling pixel values to the range [0, 1]. The training dataset is split into training (80%) and validation (20%) subsets using Keras ImageDataGenerator.
+
+The test dataset is kept separate and is not used during training to ensure unbiased evaluation.
 
 This stage of the pipeline is implemented in:
 
@@ -107,48 +114,85 @@ notebooks/03_cleaning_and_split.ipynb
 
 ## 9. CNN Model Development
 
-Three CNN models are developed to demonstrate iterative optimisation:
+Three CNN models are developed to demonstrate iterative optimisation and performance improvement.
 
-### 9.1 Model 1 – Baseline CNN
-A simple CNN architecture used to establish baseline performance.
+---
 
-### 9.2 Model 2 – Improved CNN
-An enhanced CNN model incorporating architectural and training improvements.
+## 9.1 Model 1 – Baseline CNN
 
-### 9.3 Model 3 – Optimised CNN
-A final optimised CNN model designed to maximise performance and generalisation.
+A baseline CNN was implemented to establish initial performance and serve as a reference for subsequent improvements.
+
+### Architecture Overview
+- Input size: 150 × 150 × 3  
+- Two convolutional layers with ReLU activation  
+- Max-pooling layers for spatial downsampling  
+- Fully connected dense layer  
+- Softmax output layer for six-class classification  
+
+The model was compiled using the Adam optimiser and categorical cross-entropy loss.
+
+### Training Configuration
+- Training/validation split: 80% / 20%  
+- Batch size: 32  
+- Epochs: 10  
+- Image normalisation applied  
+
+---
+
+## 9.2 Baseline Model Performance
+
+Training and validation accuracy and loss were recorded across epochs. Learning curves show that the model learns meaningful features, with validation performance closely tracking training performance.
+
+Training curves are visualised in:
+
+notebooks/04_model_1_baseline.ipynb
 
 ---
 
 ## 10. Data Augmentation
-Data augmentation techniques are applied during training to improve robustness and reduce overfitting.
+
+Data augmentation is not applied in the baseline model to ensure that initial performance reflects the inherent capability of the CNN. Augmentation techniques are introduced in later models.
 
 ---
 
-## 11. Model Performance Evaluation
-Model performance is evaluated using training and validation curves, test set accuracy, and predictions on individual random images.
+## 11. Model Evaluation Strategy
+
+Model evaluation is based on training and validation accuracy and loss. Evaluation on a held-out test set and predictions on individual images are performed in later stages.
 
 ---
 
 ## 12. Python Packages Used
-Key Python libraries used in this project include NumPy, Pandas, Matplotlib, TensorFlow/Keras, Scikit-learn, and the Kaggle API.
+
+Key Python libraries used include:
+- NumPy  
+- Pandas  
+- Matplotlib  
+- TensorFlow / Keras  
+- Scikit-learn  
+- Kaggle API  
 
 ---
 
 ## 13. Reused Code and References
-Any reused or adapted code from external tutorials, documentation, or repositories is clearly referenced and acknowledged.
+
+Any reused or adapted code from external sources is clearly referenced in the notebooks and documentation.
 
 ---
 
 ## 14. Conclusions
-This section summarises key findings and model performance outcomes.
+
+This project demonstrates a complete CNN-based image classification pipeline. The baseline model establishes a strong foundation for further optimisation.
 
 ---
 
 ## 15. Future Work
-Potential improvements include transfer learning, deeper CNN architectures, and deployment as a graphical user interface (GUI) application.
+
+Future improvements include deeper CNN architectures, regularisation techniques, transfer learning, and deployment as a GUI application using Streamlit.
 
 ---
 
 ## 16. Known Issues / Bugs
-Any unresolved issues or limitations encountered during development are documented here.
+
+No critical unresolved issues at the current stage of the project.
+
+
