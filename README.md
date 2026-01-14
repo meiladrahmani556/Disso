@@ -13,6 +13,7 @@ The project follows a complete machine learning pipeline, including dataset acqu
 The repository is organised as follows:
 
 - notebooks/ – Jupyter notebooks implementing each stage of the ML pipeline  
+- images/ – Figures used in documentation  
 - data/ – Dataset directory (excluded from version control via .gitignore)  
 - README.md – Project documentation  
 
@@ -106,7 +107,7 @@ Images are normalised by rescaling pixel values to the range [0, 1]. The trainin
 
 The test dataset is kept separate and is not used during training to ensure unbiased evaluation.
 
-This stage of the pipeline is implemented in:
+This stage is implemented in:
 
 notebooks/03_cleaning_and_split.ipynb
 
@@ -120,7 +121,7 @@ Three CNN models are developed to demonstrate iterative optimisation and perform
 
 ## 9.1 Model 1 – Baseline CNN
 
-A baseline CNN was implemented to establish initial performance and serve as a reference for subsequent improvements.
+A baseline CNN was implemented to establish initial performance and serve as a reference point for subsequent improvements.
 
 ### Architecture Overview
 - Input size: 150 × 150 × 3  
@@ -141,9 +142,17 @@ The model was compiled using the Adam optimiser and categorical cross-entropy lo
 
 ## 9.2 Baseline Model Performance
 
-Training and validation accuracy and loss were recorded across epochs. Learning curves show that the model learns meaningful features, with validation performance closely tracking training performance.
+Training and validation accuracy and loss were recorded across epochs. The learning curves reveal strong performance on the training set, while validation accuracy plateaus and validation loss increases after several epochs.
 
-Training curves are visualised in:
+This behaviour indicates overfitting and motivates the introduction of regularisation and architectural improvements in subsequent models.
+
+### Training and Validation Curves
+
+![Baseline CNN Training Curves](images/baseline_cnn_training_curves.png)
+
+The baseline model provides a clear performance benchmark against which improved CNN architectures are evaluated.
+
+Training is implemented in:
 
 notebooks/04_model_1_baseline.ipynb
 
@@ -151,13 +160,18 @@ notebooks/04_model_1_baseline.ipynb
 
 ## 10. Data Augmentation
 
-Data augmentation is not applied in the baseline model to ensure that initial performance reflects the inherent capability of the CNN. Augmentation techniques are introduced in later models.
+Data augmentation is not applied in the baseline model to ensure that initial performance reflects the inherent capability of the CNN. Augmentation techniques are introduced in later models to improve generalisation and reduce overfitting.
 
 ---
 
 ## 11. Model Evaluation Strategy
 
-Model evaluation is based on training and validation accuracy and loss. Evaluation on a held-out test set and predictions on individual images are performed in later stages.
+Model evaluation is based on:
+- Training accuracy  
+- Validation accuracy  
+- Training and validation loss  
+
+Evaluation on a held-out test set and predictions on individual images are performed in later stages of the project.
 
 ---
 
@@ -175,24 +189,22 @@ Key Python libraries used include:
 
 ## 13. Reused Code and References
 
-Any reused or adapted code from external sources is clearly referenced in the notebooks and documentation.
+Any reused or adapted code from external sources is clearly referenced within the notebooks and documentation.
 
 ---
 
 ## 14. Conclusions
 
-This project demonstrates a complete CNN-based image classification pipeline. The baseline model establishes a strong foundation for further optimisation.
+This project demonstrates a complete CNN-based image classification pipeline. The baseline CNN establishes a strong foundation for iterative optimisation and performance improvements.
 
 ---
 
 ## 15. Future Work
 
-Future improvements include deeper CNN architectures, regularisation techniques, transfer learning, and deployment as a GUI application using Streamlit.
+Future work includes deeper CNN architectures, batch normalisation, dropout regularisation, transfer learning, and deployment as a graphical user interface (GUI) application using Streamlit.
 
 ---
 
 ## 16. Known Issues / Bugs
 
 No critical unresolved issues at the current stage of the project.
-
-
