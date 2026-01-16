@@ -156,6 +156,32 @@ Training is implemented in:
 
 notebooks/04_model_1_baseline.ipynb
 
+## 9.3 Model 2 – Improved CNN (Data Augmentation)
+
+An improved CNN was developed to reduce overfitting observed in the baseline model and improve generalisation performance.
+
+### Improvements Introduced
+- Data augmentation applied to the training dataset  
+- Random rotations, shifts, zoom, and horizontal flipping  
+- Increased training duration  
+- Improved validation stability  
+
+Data augmentation was applied only to the training data, while validation data remained unchanged to ensure fair evaluation.
+
+### Model 2 Training and Validation Performance
+
+![Model 2 Training Curves](images/model_2_training_curves.png)
+
+Compared to the baseline CNN, Model 2 demonstrates:
+- Higher and more stable validation accuracy  
+- Reduced validation loss fluctuations  
+- Improved resistance to overfitting  
+
+Training is implemented in:
+
+notebooks/05_model_2_improved.ipynb
+
+
 ---
 
 ## 10. Data Augmentation
@@ -201,7 +227,12 @@ This project demonstrates a complete CNN-based image classification pipeline. Th
 
 ## 15. Future Work
 
-Future work includes deeper CNN architectures, batch normalisation, dropout regularisation, transfer learning, and deployment as a graphical user interface (GUI) application using Streamlit.
+Future work includes:
+- Development of a third, optimised CNN model  
+- Batch normalisation and dropout regularisation  
+- Learning rate scheduling and early stopping  
+- Evaluation using confusion matrices and classification reports  
+- Deployment as a GUI application using Streamlit  
 
 ---
 
