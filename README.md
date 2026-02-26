@@ -1,4 +1,4 @@
-# Dissertation Project – CNN Image Classification
+# t – CNN Image Classification
 
 ## 1. Project Overview
 
